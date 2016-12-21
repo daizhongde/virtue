@@ -51,10 +51,10 @@ public class INIT {
 	public final static String configFileDirectory = BUSI_configFileDirectory;
 	
 //	# ######################### test config begin ############################
-	public final static String driver = ConfigReader_PROP.findProperty(CFName, "driver");
-	public final static String url = ConfigReader_PROP.findProperty(CFName, "url");
-	public final static String dbuser = ConfigReader_PROP.findProperty(CFName, "dbuser");
-	public final static String dbpass = ConfigReader_PROP.findProperty(CFName, "dbpass");
+	public final static String driver = ConfigReader_PROP.findProperty(CFName, "datasource.driverClassName");
+	public final static String url = ConfigReader_PROP.findProperty(CFName, "datasource.url");
+	public final static String dbuser = ConfigReader_PROP.findProperty(CFName, "datasource.username");
+	public final static String dbpass = ConfigReader_PROP.findProperty(CFName, "datasource.password");
 	
 	public final static String jndi = ConfigReader_PROP.findProperty(CFName, "jndi");
 	public final static String factory = ConfigReader_PROP.findProperty(CFName, "factory");
