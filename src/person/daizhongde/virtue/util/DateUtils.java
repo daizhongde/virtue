@@ -1,8 +1,6 @@
 package person.daizhongde.virtue.util;
 
 import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.DateFormat.Field;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -155,20 +153,6 @@ public class DateUtils {
 		GregorianCalendar gc = new GregorianCalendar();
 		gc.setTime(d);
 		gc.add(5, -1);
-		DateFormat.Field i = Field.DAY_OF_MONTH;
-		gc.set(gc.get(Calendar.YEAR), gc.get(Calendar.MONTH),
-				gc.get(Calendar.DATE));
-		return gc;
-	}
-	/**
-	 * get the month before
-	 * @return
-	 */
-	public static Calendar getTheMonthBefore(Date d){
-		GregorianCalendar gc = new GregorianCalendar();
-		gc.setTime(d);
-		gc.add(Calendar.MONTH, -1);
-		DateFormat.Field i = Field.DAY_OF_MONTH;
 		gc.set(gc.get(Calendar.YEAR), gc.get(Calendar.MONTH),
 				gc.get(Calendar.DATE));
 		return gc;
@@ -188,15 +172,11 @@ public class DateUtils {
 	}
 	
 	public static void main(String args[]){
-////		Date date = parseDate( "1900/01/01 00:00:01" );
-//		Date date = parseDate( "1900/01/01" );
-////		System.out.println("date:"+date.toString());
-//		String s = "1900/01/01 00:00:01";
-//		s = s.replaceAll("/", "-");
-//		System.out.println("s:"+s);
-		DateUtils util = new DateUtils();
-		Calendar cal = util.getTheDayBefore(new Date());
-		SimpleDateFormat format = new SimpleDateFormat("yyyyMM");
-		System.out.println(format.format(cal.getTime()));
+//		Date date = parseDate( "1900/01/01 00:00:01" );
+		Date date = parseDate( "1900/01/01" );
+//		System.out.println("date:"+date.toString());
+		String s = "1900/01/01 00:00:01";
+		s = s.replaceAll("/", "-");
+		System.out.println("s:"+s);
 	}
 }
