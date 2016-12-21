@@ -7,7 +7,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.orm.hibernate3.SessionFactoryUtils;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.Query;
+import org.hibernate.query.Query;
 import org.hibernate.HibernateException;
 import org.hibernate.type.StandardBasicTypes;
 

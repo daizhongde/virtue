@@ -2,12 +2,12 @@ package person.daizhongde.virtue.dao;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.orm.hibernate3.HibernateCallback;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-import org.springframework.orm.hibernate3.SessionFactoryUtils;
+import org.springframework.orm.hibernate5.HibernateCallback;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import org.springframework.orm.hibernate5.SessionFactoryUtils;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.Query;
+import org.hibernate.query.Query;
 import org.hibernate.HibernateException;
 import org.hibernate.type.StandardBasicTypes;
 
@@ -57,7 +57,7 @@ import java.util.Map;
  */ 
 public class SpringHibernateDaoSupport extends HibernateDaoSupport implements SpringHibernateDao
 {
-	private static Logger log = LoggerFactory.getLogger(SpringHibernateDaoSupport.class);
+	private static Logger log = LoggerFactory.getLogger(SpringHibernate5DaoSupport.class);
 
 	/**
 	 * 使用HQL 语句进行分页查询操作

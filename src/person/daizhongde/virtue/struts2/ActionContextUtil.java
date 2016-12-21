@@ -1,22 +1,22 @@
-package person.daizhongde.virtue.struts2;
-
+//package person.daizhongde.virtue.struts2;
+//
 //import javax.servlet.http.HttpServletRequest;
 //import javax.servlet.http.HttpServletResponse;
 //import javax.servlet.http.HttpSession;
-
-import org.apache.struts2.StrutsStatics;
-
-import com.opensymphony.xwork2.ActionContext;
-
-/**
- * 获取上下文信息.
- * @author w144786
- *
- */
-public class ActionContextUtil {
-	public ActionContextUtil() {
-		// TODO Auto-generated constructor stub
-	}
+//
+//import org.apache.struts2.StrutsStatics;
+//
+//import com.opensymphony.xwork2.ActionContext;
+//
+///**
+// * 获取上下文信息.
+// * @author w144786
+// *
+// */
+//public class ActionContextUtil {
+//	public ActionContextUtil() {
+//		// TODO Auto-generated constructor stub
+//	}
 //	
 //	/**
 //	 * 获取HttpServletResponse.
@@ -47,4 +47,4 @@ public class ActionContextUtil {
 ////		UserDto user = (UserDto) httpSession.getAttribute(LoginConstants.LOGIN_USER);
 ////		return user;
 ////	}
-}
+//}

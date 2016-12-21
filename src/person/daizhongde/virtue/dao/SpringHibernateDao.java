@@ -16,7 +16,7 @@ import java.util.Map;
  * <br/>update 2013/8/27 by dai zhongde
  * @author  daizhongde dzd2746679@163.com 
  * @version  1.1
- */
+ */ 
 public interface SpringHibernateDao {
 
 	/**
