@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * HSSFWorkbook util
@@ -16,7 +17,7 @@ import org.apache.log4j.Logger;
  *
  */
 public class TXTUtil {
-	private Logger logger = Logger.getLogger(this.getClass());
+	private Logger log = LogManager.getLogger(TXTUtil.class.getName() );
 	
 	private long startMili = 0;
 	private long endMili = 0;
@@ -75,7 +76,7 @@ public class TXTUtil {
 			BufferedWriter bw, 
 			String fieldDelim ) throws IOException{
 		
-    	logger.debug("开始写第<"+sheetNumber+">批数据......");
+    	log.debug("开始写第<"+sheetNumber+">批数据......");
 		startMili=System.currentTimeMillis();// 当前时间对应的毫秒数
 	    for (int i = 0;  i < currentSheetRecordCount; i++ ) {
 	    	Vector row = (Vector)v.get(i);//this vector first column is record number
@@ -91,9 +92,9 @@ public class TXTUtil {
 			}//第一层：列循环 column number
 	    	bw.newLine();
 		}//第二层：行循环 row number
-	    logger.debug("写第<"+sheetNumber+">批数据完成!");
+	    log.debug("写第<"+sheetNumber+">批数据完成!");
 	    endMili=System.currentTimeMillis();
-        logger.info("总耗时为："+(endMili-startMili)+"毫秒，"+(endMili-startMili)/1000+"秒!");
+        log.info("总耗时为："+(endMili-startMili)+"毫秒，"+(endMili-startMili)/1000+"秒!");
 	}
 	
 	
@@ -113,7 +114,7 @@ public class TXTUtil {
 //		System.out.println("list:\n"+JSONArray.fromObject(list).toString());
         
 		
-    	logger.debug("开始写第<"+sheetNumber+">批数据......");
+    	log.debug("开始写第<"+sheetNumber+">批数据......");
 		startMili=System.currentTimeMillis();// 当前时间对应的毫秒数
 	    for (int i = 0;  i < currentSheetRecordCount; i++ )
 	    {
@@ -143,12 +144,12 @@ public class TXTUtil {
 	    	bw.write(options.get("RecordDelimiter").toString());
 	    	
 		}//第二层：行循环 row number
-	    logger.debug("写第<"+sheetNumber+">批数据完成!");
+	    log.debug("写第<"+sheetNumber+">批数据完成!");
 	    endMili=System.currentTimeMillis();
-        logger.info("总耗时为："+(endMili-startMili)+"毫秒，"+(endMili-startMili)/1000+"秒!");
+        log.info("总耗时为："+(endMili-startMili)+"毫秒，"+(endMili-startMili)/1000+"秒!");
         
         /* 经过不权威的粗略测试第2种方法较第1种方法效率低 
-    	logger.debug("2开始写第<"+sheetNumber+">批数据......");
+    	log.debug("2开始写第<"+sheetNumber+">批数据......");
 		startMili=System.currentTimeMillis();// 当前时间对应的毫秒数
 		String line = "";
 	    for (int i = 0;  i < currentSheetRecordCount; i++ ) {
@@ -166,9 +167,9 @@ public class TXTUtil {
 	    	bw.write(line);
 	    	bw.newLine();
 		}//第二层：行循环 row number
-	    logger.debug("2写第<"+sheetNumber+">批数据完成!");
+	    log.debug("2写第<"+sheetNumber+">批数据完成!");
 	    endMili=System.currentTimeMillis();
-        logger.info("2总耗时为："+(endMili-startMili)+"毫秒，"+(endMili-startMili)/1000+"秒!");*/
+        log.info("2总耗时为："+(endMili-startMili)+"毫秒，"+(endMili-startMili)/1000+"秒!");*/
 	}
 	public String getTextQualifier() {
 		return TextQualifier;

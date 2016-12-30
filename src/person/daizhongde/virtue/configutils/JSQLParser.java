@@ -6,11 +6,11 @@ import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.SortedMap;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import person.daizhongde.virtue.assemble.sql.SQLUtil;
 import person.daizhongde.virtue.util.FIELDUtil;
@@ -28,7 +28,7 @@ import person.daizhongde.virtue.util.FIELDUtil;
  */
 public class JSQLParser {
 	
-	private static org.apache.log4j.Logger log = Logger.getLogger(JSQLParser.class);
+	private static Logger log = LogManager.getLogger(JSQLParser.class.getName() );
 	
 	/**
 	 * 

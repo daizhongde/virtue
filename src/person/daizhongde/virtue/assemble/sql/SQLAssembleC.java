@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import person.daizhongde.virtue.util.FIELDUtil;
 
@@ -25,7 +26,7 @@ import person.daizhongde.virtue.util.FIELDUtil;
  */
 public class SQLAssembleC {
 	
-	private Logger log = Logger.getLogger(this.getClass());
+	private static Logger log = LogManager.getLogger(SQLAssembleC.class.getName() );
 	
 	/** database schema name **/
 	private String schema;

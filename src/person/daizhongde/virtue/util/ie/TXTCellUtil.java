@@ -3,10 +3,11 @@ package person.daizhongde.virtue.util.ie;
 import java.sql.Types;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * oracle11gR2: 
  * 12   VARCHAR2 
@@ -59,8 +60,8 @@ import org.apache.log4j.Logger;
  *
  */
 public class TXTCellUtil {
-	
-	private Logger logger = Logger.getLogger(this.getClass());
+
+	private static Logger log = LogManager.getLogger(TXTCellUtil.class.getName() );
 	
 	private Map options;
 	

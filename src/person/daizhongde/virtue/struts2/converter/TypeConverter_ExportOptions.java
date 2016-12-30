@@ -4,9 +4,10 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.sf.json.JSONObject;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import org.apache.log4j.Logger;
+import net.sf.json.JSONObject;
 
 /**
  * Export Options, struts2 type converter
@@ -43,8 +44,7 @@ import org.apache.log4j.Logger;
  */
 public class TypeConverter_ExportOptions {
 
-//	private  Log log = LogFactory.getLog(this.getClass());
-	private static Logger log = Logger.getLogger(TypeConverter_ExportOptions.class);
+	private static Logger log = LogManager.getLogger(TypeConverter_ExportOptions.class.getName() );
 	
 	/**
 	 * 如果request中没有相应的参数，这个方法就不会执行

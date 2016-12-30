@@ -4,7 +4,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -18,7 +19,7 @@ import org.apache.poi.ss.usermodel.Workbook;
  *
  */
 public class SSFWorkbookUtil4Export {
-	private Logger logger = Logger.getLogger(this.getClass());
+	private static Logger log = LogManager.getLogger(SSFWorkbookUtil4Export.class.getName() );
 	
 	private long startMili = 0;
 	private long endMili = 0;
@@ -107,7 +108,7 @@ public class SSFWorkbookUtil4Export {
 		}
 		else
 		{
-			logger.debug("## 无表头-无序号列  ##");
+			log.debug("## 无表头-无序号列  ##");
 			generateASheetNoColumnTitle( sheetNumber, list, currentSheetRecordCount );
 		}
 	}

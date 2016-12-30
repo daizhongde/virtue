@@ -6,9 +6,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import net.sf.json.JSONObject;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import org.apache.log4j.Logger;
+import net.sf.json.JSONObject;
 
 /**
  * support is not very good, need strict demands
@@ -17,7 +18,7 @@ import org.apache.log4j.Logger;
  */
 public class VirtueJSReader { 
 	
-	private static Logger log = Logger.getLogger(VirtueJSReader.class);
+	private static Logger log = LogManager.getLogger(VirtueJSReader.class.getName() );
 	
 	/**
 	 * 读取配置项,有待改进,以后需要支持简单压缩过的javascript

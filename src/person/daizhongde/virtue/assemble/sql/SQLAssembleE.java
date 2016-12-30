@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import person.daizhongde.virtue.configutils.ConfigDocument_SQL;
 
@@ -35,7 +36,7 @@ import person.daizhongde.virtue.configutils.ConfigDocument_SQL;
  */
 public class SQLAssembleE {
 	
-	private Logger log = Logger.getLogger(this.getClass());
+	private static Logger log = LogManager.getLogger(SQLAssembleE.class.getName() );
 	
 //	/** value in the config file<p>There only used when refer to Nest sql  **/
 //	private AbstractConstant absc;

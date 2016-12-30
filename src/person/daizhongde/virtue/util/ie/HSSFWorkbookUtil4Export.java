@@ -4,16 +4,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+
 
 /**
  * HSSFWorkbook util
@@ -22,7 +21,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
  *
  */
 public class HSSFWorkbookUtil4Export {
-	private Logger logger = Logger.getLogger(this.getClass());
+	private static Logger log = LogManager.getLogger(HSSFWorkbookUtil4Export.class.getName() );
 	
 	private long startMili = 0;
 	private long endMili = 0;
@@ -105,7 +104,7 @@ public class HSSFWorkbookUtil4Export {
 	public void generateASheet( int sheetNumber, Vector v, int currentSheetRecordCount ){
 		startMili=System.currentTimeMillis();// 当前时间对应的毫秒数
 		
-    	logger.debug("开始创建第<"+sheetNumber+">个sheet......");
+    	log.debug("开始创建第<"+sheetNumber+">个sheet......");
     	sheet = wb.createSheet(sheetName+"("+sheetNumber+")");
 		sheet.createFreezePane( fixColumnCount , 1, fixColumnCount, 1 ); 
 
@@ -147,19 +146,19 @@ public class HSSFWorkbookUtil4Export {
 	    
 	    if( sheetAutoSizeColumn ){
 	    	long start = System.currentTimeMillis();// 当前时间对应的毫秒数
-	    	logger.info("开始autoSizeColumn sheet......");
+	    	log.info("开始autoSizeColumn sheet......");
 		    for(int i = 0; i < columnNames_zh.length + 1 ; i ++ ){
 		    	sheet.autoSizeColumn( (short)i );
 		    }
-		    logger.info("autoSizeColumn sheet 完成!");
+		    log.info("autoSizeColumn sheet 完成!");
 		    long end = System.currentTimeMillis();
-            logger.info("autoSizeColumn 总耗时为："+(start-end)+"毫秒，"+(start-end)/1000+"秒!");
+            log.info("autoSizeColumn 总耗时为："+(start-end)+"毫秒，"+(start-end)/1000+"秒!");
 	    }
 	    
-	    logger.debug("第<"+sheetNumber+">个sheet创建完成!");
+	    log.debug("第<"+sheetNumber+">个sheet创建完成!");
 	    
 	    endMili=System.currentTimeMillis();
-	    logger.info("创建第<"+sheetNumber+">个sheet总耗时为："+(endMili-startMili)+"毫秒，"+(endMili-startMili)/1000+"秒!");
+	    log.info("创建第<"+sheetNumber+">个sheet总耗时为："+(endMili-startMili)+"毫秒，"+(endMili-startMili)/1000+"秒!");
 	}
 	/**
 	 * 有序号
@@ -172,7 +171,7 @@ public class HSSFWorkbookUtil4Export {
 	public void generateASheet( int sheetNumber, Vector v, int currentSheetRecordCount, int currentRecordNumber ){
 		startMili=System.currentTimeMillis();// 当前时间对应的毫秒数
 		
-    	logger.debug("开始创建第<"+sheetNumber+">个sheet......");
+    	log.debug("开始创建第<"+sheetNumber+">个sheet......");
     	sheet = wb.createSheet(sheetName+"("+sheetNumber+")");
 		sheet.createFreezePane( fixColumnCount, 1, fixColumnCount, 1 );
 
@@ -227,15 +226,15 @@ public class HSSFWorkbookUtil4Export {
 		}//第二层：行循环 row number
 	    
 	    if( sheetAutoSizeColumn ){
-	    	logger.info("开始autoSizeColumn sheet......");
+	    	log.info("开始autoSizeColumn sheet......");
 		    for(int i = 0; i < columnNames_zh.length + 1 ; i ++ ){
 		    	sheet.autoSizeColumn((short)i);
 		    }
-		    logger.info("完成 autoSizeColumn sheet!");
+		    log.info("完成 autoSizeColumn sheet!");
 	    }
-	    logger.debug("第<"+sheetNumber+">个sheet创建完成!");
+	    log.debug("第<"+sheetNumber+">个sheet创建完成!");
 	    endMili=System.currentTimeMillis();
-        logger.info("总耗时为："+(endMili-startMili)+"毫秒，"+(endMili-startMili)/1000+"秒!");
+        log.info("总耗时为："+(endMili-startMili)+"毫秒，"+(endMili-startMili)/1000+"秒!");
 	}
 //	public HSSFWorkbook generateASheet( int sheetNumber, List<Map> list ){
 //		return hwb;
@@ -253,7 +252,7 @@ public class HSSFWorkbookUtil4Export {
 		cs.initializeRequiredStyle(columnTypes, columnScales);
 		if( Boolean.valueOf(options.get("IncludeColumnTitles").toString()).booleanValue() )
 		{
-			logger.debug("## 有表头-无序号列   ##");
+			log.debug("## 有表头-无序号列   ##");
 			HSSFCellStyle textHeader = wb.createCellStyle();
 			textHeader.setDataFormat( wb.createDataFormat().getFormat("text"));
 			org.apache.poi.hssf.usermodel.HSSFFont headerF = wb.createFont();
@@ -268,7 +267,7 @@ public class HSSFWorkbookUtil4Export {
 		}
 		else
 		{
-			logger.debug("## 无表头-无序号列  ##");
+			log.debug("## 无表头-无序号列  ##");
 			generateASheetNoColumnTitle( sheetNumber, list, currentSheetRecordCount );
 		}
 	}
@@ -283,13 +282,13 @@ public class HSSFWorkbookUtil4Export {
 		
 //		System.out.println("list:\n"+JSONArray.fromObject(list).toString());
 		
-    	logger.debug("开始创建第<"+sheetNumber+">个sheet......");
+    	log.debug("开始创建第<"+sheetNumber+">个sheet......");
     	startMili=System.currentTimeMillis();// 当前时间对应的毫秒数
     	
     	sheet = wb.createSheet(sheetName+"("+sheetNumber+")");
 		sheet.createFreezePane( fixColumnCount, 1, fixColumnCount, 1 );
 		
-		logger.debug("## No RecordNo, include Column title   ##");
+		log.debug("## No RecordNo, include Column title   ##");
 		
 	    row = sheet.createRow(0);
 	    row.setHeightInPoints(18);
@@ -320,15 +319,15 @@ public class HSSFWorkbookUtil4Export {
 
 
 	    if( sheetAutoSizeColumn ){
-	    	logger.info("开始autoSizeColumn sheet......");
+	    	log.info("开始autoSizeColumn sheet......");
 		    for(int i = 0; i < columnNames_zh.length + 1 ; i ++ ){
 		    	sheet.autoSizeColumn( (short)i );
 		    }
-		    logger.info("完成autoSizeColumn sheet!");
+		    log.info("完成autoSizeColumn sheet!");
 	    }
-	    logger.debug("第<"+sheetNumber+">个sheet创建完成!");
+	    log.debug("第<"+sheetNumber+">个sheet创建完成!");
 	    endMili=System.currentTimeMillis();
-        logger.info("总耗时为："+(endMili-startMili)+"毫秒，"+(endMili-startMili)/1000+"秒!");
+        log.info("总耗时为："+(endMili-startMili)+"毫秒，"+(endMili-startMili)/1000+"秒!");
 	}
 	/**
 	 * No RecordNo, No Column title
@@ -341,13 +340,13 @@ public class HSSFWorkbookUtil4Export {
 		
 //		System.out.println("list:\n"+JSONArray.fromObject(list).toString());
 		
-    	logger.debug("开始创建第<"+sheetNumber+">个sheet......");
+    	log.debug("开始创建第<"+sheetNumber+">个sheet......");
     	startMili=System.currentTimeMillis();// 当前时间对应的毫秒数
     	
     	sheet = wb.createSheet(sheetName+"("+sheetNumber+")");
 		sheet.createFreezePane( fixColumnCount, 0, fixColumnCount, 0 );
 
-		logger.debug("## No RecordNo, No Column title ##");
+		log.debug("## No RecordNo, No Column title ##");
 		for (int i = 0, j = columnNames_zh.length; i < j; i ++)
 		{
 			POICellUtil.setDefaultColumnStyle(sheet, i,  cs, columnTypes[i], columnScales[i]);
@@ -368,15 +367,15 @@ public class HSSFWorkbookUtil4Export {
 		}//第二层：行循环 row number
 
 	    if( sheetAutoSizeColumn ){
-	    	logger.info("开始autoSizeColumn sheet......");
+	    	log.info("开始autoSizeColumn sheet......");
 		    for(int i = 0; i < columnNames_zh.length + 1 ; i ++ ){
 		    	sheet.autoSizeColumn( (short)i );
 		    }
-		    logger.info("完成autoSizeColumn sheet!");
+		    log.info("完成autoSizeColumn sheet!");
 	    }
-	    logger.debug("第<"+sheetNumber+">个sheet创建完成!");
+	    log.debug("第<"+sheetNumber+">个sheet创建完成!");
 	    endMili=System.currentTimeMillis();
-        logger.info("总耗时为："+(endMili-startMili)+"毫秒，"+(endMili-startMili)/1000+"秒!");
+        log.info("总耗时为："+(endMili-startMili)+"毫秒，"+(endMili-startMili)/1000+"秒!");
 	}
 	/**
 	 * 有序号
@@ -389,13 +388,13 @@ public class HSSFWorkbookUtil4Export {
 	public void generateASheet( int sheetNumber, List list, int currentSheetRecordCount, int currentRecordNumber ){
     	startMili=System.currentTimeMillis();// 当前时间对应的毫秒数
     	
-    	logger.debug("开始创建第<"+sheetNumber+">个sheet......");
+    	log.debug("开始创建第<"+sheetNumber+">个sheet......");
     	sheet = wb.createSheet(sheetName+"("+sheetNumber+")");
 		sheet.createFreezePane( fixColumnCount, 1, fixColumnCount, 1 );
 		
 		if( Boolean.valueOf(options.get("IncludeColumnTitles").toString()).booleanValue() )
 		{
-			logger.debug("## 有表头-有序号列   ##");
+			log.debug("## 有表头-有序号列   ##");
 			// 遍历列头字段名
 		    //String name : colNames
 		    row = sheet.createRow(0);
@@ -416,7 +415,7 @@ public class HSSFWorkbookUtil4Export {
 		}
 		else
 		{
-			logger.debug("## 无表头-有序号列  ##");
+			log.debug("## 无表头-有序号列  ##");
 			//set default column style-有序号
 		    sheet.setDefaultColumnStyle( (short)0, cs.numberNCP0);
 			for (int i = 0, j = columnNames_zh.length; i < j; i ++) {
@@ -449,15 +448,15 @@ public class HSSFWorkbookUtil4Export {
 		}//第二层：行循环 row number
 	    
 	    if( sheetAutoSizeColumn ){
-	    	logger.info("开始autoSizeColumn sheet......");
+	    	log.info("开始autoSizeColumn sheet......");
 		    for(int i = 0; i < columnNames_zh.length + 1 ; i ++ ){
 		    	sheet.autoSizeColumn( (short)i );
 		    }
-		    logger.info("完成 autoSizeColumn sheet!");
+		    log.info("完成 autoSizeColumn sheet!");
 	    }
 	    
-	    logger.debug("第<"+sheetNumber+">个sheet创建完成!");
+	    log.debug("第<"+sheetNumber+">个sheet创建完成!");
 	    endMili=System.currentTimeMillis();
-        logger.info("总耗时为："+(endMili-startMili)+"毫秒，"+(endMili-startMili)/1000+"秒!");
+        log.info("总耗时为："+(endMili-startMili)+"毫秒，"+(endMili-startMili)/1000+"秒!");
 	}
 }

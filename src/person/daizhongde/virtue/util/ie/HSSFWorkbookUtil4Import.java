@@ -1,19 +1,16 @@
 package person.daizhongde.virtue.util.ie;
 
-import java.sql.Timestamp;
 import java.sql.Types;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.Vector;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
-import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFFormulaEvaluator;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -31,7 +28,7 @@ import person.daizhongde.virtue.util.DateUtils;
  *
  */
 public class HSSFWorkbookUtil4Import {
-	private Logger logger = Logger.getLogger(this.getClass());
+	private static Logger log = LogManager.getLogger(HSSFWorkbookUtil4Import.class.getName() );
 	
 	private long startMili = 0;
 	private long endMili = 0;
