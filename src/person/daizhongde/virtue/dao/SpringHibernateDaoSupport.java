@@ -70,7 +70,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 	public List findByPage(final String HQL, 
 		 final int offset, final int pageSize)
 	{
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 			new HibernateCallback()
 			{
 				public Object doInHibernate(Session session)
@@ -102,7 +102,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 		}
 		
 		@SuppressWarnings("deprecation")
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 			new HibernateCallback()
 			{
 				public Object doInHibernate(Session session)
@@ -168,7 +168,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 			return listAll(HQL);
 		}
 		
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 			new HibernateCallback()
 			{
 				public Object doInHibernate(Session session)
@@ -235,7 +235,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 			return findaValue(HQL);
 		}
 		
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 				new HibernateCallback()
 				{
 					public Object doInHibernate(Session session)
@@ -382,7 +382,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 	public List sqlQueryfindByPage(final String sql, 
 		 final int offset, final int pageSize)
 	{
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 			new HibernateCallback()
 			{
 				public Object doInHibernate(Session session)
@@ -415,7 +415,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 		}
 		
 //		log.debug( sql );
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 			new HibernateCallback()
 			{
 				public Object doInHibernate(Session session)
@@ -473,7 +473,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 	public List sqlQueryfindRetArrayByPage(final String sql, 
 		 final int offset, final int pageSize)
 	{
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 			new HibernateCallback()
 			{
 				public Object doInHibernate(Session session)
@@ -505,7 +505,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 		}
 		
 		log.debug( sql );
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 			new HibernateCallback()
 			{
 				public Object doInHibernate(Session session)
@@ -560,7 +560,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 	public List sqlQueryfindByPage(final String sql, 
 		 final int offset, final int pageSize, final Class c)
 	{
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 			new HibernateCallback()
 			{
 				public Object doInHibernate(Session session)
@@ -592,7 +592,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 			return sqlQueryfindByPage(sql,offset,pageSize);
 		}
 		
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 			new HibernateCallback()
 			{
 				public Object doInHibernate(Session session)
@@ -642,7 +642,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 	 */
 	public List sqlQuerylistAll(final String sql)
 	{
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 			new HibernateCallback()
 			{
 				public Object doInHibernate(Session session)
@@ -672,7 +672,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 			return sqlQuerylistAll(sql);
 		}
 		
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 			new HibernateCallback()
 			{
 				public Object doInHibernate(Session session)
@@ -741,7 +741,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 	 */
 	public List sqlQuerylistAllRetArray(final String sql)
 	{
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 			new HibernateCallback()
 			{
 				public Object doInHibernate(Session session)
@@ -760,7 +760,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 	 */
 	public List sqlQuerylistAllRetArray(final String sql, final String col )
 	{
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 			new HibernateCallback()
 			{
 				public Object doInHibernate(Session session)
@@ -786,7 +786,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 			return sqlQuerylistAllRetArray(sql);
 		}
 		
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 			new HibernateCallback()
 			{
 				public Object doInHibernate(Session session)
@@ -835,7 +835,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 	 */
 	public List sqlQuerylistAll(final String sql,final Class c)
 	{
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 			new HibernateCallback()
 			{
 				public Object doInHibernate(Session session)
@@ -861,7 +861,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 			return sqlQuerylistAll(sql,c);
 		}
 		
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 			new HibernateCallback()
 			{
 				public Object doInHibernate(Session session)
@@ -1068,7 +1068,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 	 * @return
 	 */
 	public List NamedQuery( final String QueryName ){
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 				new HibernateCallback()
 				{
 					public Object doInHibernate(Session session)
@@ -1092,7 +1092,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 			return NamedQuery(QueryName);
 		}
 		
-		List list = getHibernateTemplate().execute(
+		List list = (List)getHibernateTemplate().execute(
 			new HibernateCallback()
 			{
 				public Object doInHibernate(Session session)
