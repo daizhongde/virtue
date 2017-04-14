@@ -19,6 +19,8 @@ import java.util.Map;
  */ 
 public interface SpringHibernateDao {
 
+	public abstract Object findById(final Class clazz,final Serializable id);
+	public abstract Object findById(final String entityName,final Serializable id);
 	/**
 	 * 使用HQL 语句进行分页查询操作
 	 * @param HQL 需要查询的HQL语句

@@ -7,7 +7,7 @@ import java.util.Map;
 import person.daizhongde.virtue.assemble.hql.HQLAssembleQ;
 import person.daizhongde.virtue.assemble.sql.SQLAssembleQ;
 
-public interface BaseService {
+public interface BaseService2<E extends Serializable, ID extends Serializable> {
 	/**
 	 * 分页查询时用到, parameter sqlA pass in, because of it can only assemble a time
 	 * @param sqlA
@@ -40,7 +40,7 @@ public interface BaseService {
 	 * @param pageSize
 	 * @return 指定页的所有行
 	 */
-	public abstract List getRowsInMap(SQLAssembleQ sqlA, int offset, int pageSize);
+	public abstract List getRowsInMap(SQLAssembleQ hqlA, int offset, int pageSize);
 	/**
 	 * 分页查询, parameter sqlA pass in, because of it can only assemble a time
 	 * @param sqlA
@@ -82,7 +82,7 @@ public interface BaseService {
 	public abstract int addWithIdRetId( String jdata );
 	
 	public abstract void addBySavePOJO( String jdata );
-	public abstract void addBySavePOJO2( Object pojo );
+	public abstract void addBySavePOJO2( E pojo );
 	
 //	public abstract void curdAllinOne( Object[] rows );
 	
@@ -103,14 +103,14 @@ public interface BaseService {
 	 */
 	public abstract Object[] browseArray( String jdata );
 	
-	public abstract Object browsePOJO( String jdata );
-	public abstract Object browsePOJOById( int id );
-	/**
-	 * 
-	 * @param id 实例id
-	 * @return
-	 */
-	public abstract Object browsePOJOById( String id );
+	public abstract E browsePOJO( String jdata );
+//	/**
+//	 * 
+//	 * @param id 实例id
+//	 * @return
+//	 */
+//	public abstract E browsePOJOById( int id );
+//	public abstract E browsePOJOById( String id );
 	
 	/** D,permanent delete **/
 	public abstract int delete( String jdata );

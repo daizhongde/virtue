@@ -2,7 +2,12 @@ package person.daizhongde.virtue.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+/**
+ * 用户生成每天重置的序列
+ * <p>用来记录序列的日期，每天重置
+ * @author daizd
+ *
+ */
 public class DateMemery {
 	private static int date = new Integer( new SimpleDateFormat("yyyyMMdd").format( new Date() ) ).intValue();
 	/**
