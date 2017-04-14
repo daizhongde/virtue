@@ -89,6 +89,9 @@ public class ConfigReader_JS {
 			while (br.ready()) {
 				myreadline = br.readLine().trim();// 读取一行
 				
+				//去掉代码后面的行注释
+				myreadline = myreadline.replaceFirst("\"\\s*,\\s*//.*$", "\",");
+				
 				if( myreadline.startsWith("/*") && myreadline.endsWith("*/")){
 					
 					lineNum++;

@@ -85,6 +85,15 @@ public class SQLAssembleC {
 		
 		addInitialize();
 	}
+	/**
+	 * 
+	 * @param schema
+	 * @param tableName
+	 * @param data
+	 * @param columnTypes
+	 * @param front2col
+	 * @param sqlString 直接以name和value的形式拼接到sqlstring中
+	 */
 	public SQLAssembleC( String schema, String tableName, Map data, Map columnTypes,  Map front2col  , Map sqlString ){
 		this.schema = schema;
 		if( sqlString != null ){
