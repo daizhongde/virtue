@@ -89,8 +89,10 @@ public class ConfigReader_JS {
 			while (br.ready()) {
 				myreadline = br.readLine().trim();// 读取一行
 				
-				//去掉代码后面的行注释
+				//去掉代码后面的行注释,only after ", like :  .. xxx",  //fdsfsfsf
 				myreadline = myreadline.replaceFirst("\"\\s*,\\s*//.*$", "\",");
+				/* clear section comment in the back of code which is in the same line,  Tested  */
+				myreadline = myreadline.replaceFirst("\\s*/\\*.*\\*/\\s*$", "");
 				
 				if( myreadline.startsWith("/*") && myreadline.endsWith("*/")){
 					
