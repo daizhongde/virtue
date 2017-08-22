@@ -2,9 +2,9 @@ package person.daizhongde.virtue.dao;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.orm.hibernate3.HibernateCallback;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-import org.springframework.orm.hibernate3.SessionFactoryUtils;
+import org.springframework.orm.hibernate5.HibernateCallback;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import org.springframework.orm.hibernate5.SessionFactoryUtils;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Query;
@@ -58,7 +58,6 @@ import java.util.Map;
 public class SpringHibernateDaoSupport extends HibernateDaoSupport implements SpringHibernateDao
 {
 	private static Logger log = LoggerFactory.getLogger(SpringHibernateDaoSupport.class);
-
 	@SuppressWarnings("unchecked")
 	public Object findById(final Class clazz,final Serializable id)
 	{
@@ -359,7 +358,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 			});
 		return i.intValue();
 	}
-
+	
 	/**
 	 * 通过ID删除持久化对象
 	 * @param clazz
@@ -382,6 +381,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 //			});
 		
 	}
+	
 	
 	/**
 	 * 使用Native SQL 查询语句进行分页查询操作
