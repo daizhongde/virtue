@@ -12,8 +12,8 @@ import org.apache.logging.log4j.Logger;
 import person.daizhongde.virtue.configutils.ConfigDocument_SQL;
 import person.daizhongde.virtue.configutils.SQLNode;
 import person.daizhongde.virtue.constant.Operator;
-import person.daizhongde.virtue.util.FIELDUtil;
-import person.daizhongde.virtue.util.SQLManySwitch;
+import person.daizhongde.virtue.sql.SQLManySwitch;
+import person.daizhongde.virtue.util.field.FIELDUtil;
 
 public class HQLUtil {
 	private static Logger log = LogManager.getLogger(HQLUtil.class.getName() );

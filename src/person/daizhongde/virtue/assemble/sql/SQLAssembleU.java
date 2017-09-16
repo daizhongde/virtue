@@ -8,8 +8,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import person.daizhongde.virtue.configutils.ConfigDocument_SQL;
-import person.daizhongde.virtue.util.FIELDUtil;
-import person.daizhongde.virtue.util.SQLManySwitch;
+import person.daizhongde.virtue.sql.SQLManySwitch;
+import person.daizhongde.virtue.util.field.FIELDUtil;
 
 /**
  * 更新记录-单条/批量

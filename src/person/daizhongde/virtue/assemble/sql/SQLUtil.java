@@ -15,8 +15,8 @@ import person.daizhongde.virtue.configutils.ConfigDocument_SQL;
 import person.daizhongde.virtue.configutils.SQLNode;
 import person.daizhongde.virtue.constant.INIT;
 import person.daizhongde.virtue.constant.Operator;
-import person.daizhongde.virtue.util.FIELDUtil;
-import person.daizhongde.virtue.util.SQLManySwitch;
+import person.daizhongde.virtue.sql.SQLManySwitch;
+import person.daizhongde.virtue.util.field.FIELDUtil;
 /**
  * @version 1.2 20150106 daizd 增加front2col为空的支持,即:front直接使用列名
  * @version 1.1

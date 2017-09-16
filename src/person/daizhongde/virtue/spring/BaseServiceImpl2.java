@@ -18,7 +18,7 @@ import person.daizhongde.virtue.constant.AbstractConstant;
 import person.daizhongde.virtue.constant.INIT;
 import person.daizhongde.virtue.constant.Operator;
 import person.daizhongde.virtue.dao.SpringHibernateDao;
-import person.daizhongde.virtue.util.ReflectUtil;
+import person.daizhongde.virtue.util.reflect.ReflectUtil;
 
 /**
  * Not use, Only for display

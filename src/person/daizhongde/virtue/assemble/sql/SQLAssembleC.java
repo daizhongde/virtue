@@ -7,7 +7,7 @@ import java.util.Map;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import person.daizhongde.virtue.util.FIELDUtil;
+import person.daizhongde.virtue.util.field.FIELDUtil;
 
 /**
  * 单条新增

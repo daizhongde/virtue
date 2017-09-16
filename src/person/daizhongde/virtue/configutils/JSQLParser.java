@@ -13,7 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import person.daizhongde.virtue.assemble.sql.SQLUtil;
-import person.daizhongde.virtue.util.FIELDUtil;
+import person.daizhongde.virtue.util.field.FIELDUtil;
 
 /**
  * 解析SQL用

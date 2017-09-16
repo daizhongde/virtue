@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import person.daizhongde.virtue.dao.SpringHibernateDao;
-import person.daizhongde.virtue.util.List2Map;
+import person.daizhongde.virtue.util.collection.List2Map;
 import net.sf.json.JSONObject;
 
 public class CommonMySQLServiceImpl implements CommonService {

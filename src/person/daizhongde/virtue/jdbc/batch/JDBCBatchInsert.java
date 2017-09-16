@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-import person.daizhongde.virtue.util.SQLManySwitch;
+import person.daizhongde.virtue.sql.SQLManySwitch;
 
 public class JDBCBatchInsert {
 	/**

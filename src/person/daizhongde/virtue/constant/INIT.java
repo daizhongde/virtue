@@ -100,7 +100,7 @@ public class INIT {
 	
 	
 	public final static int maxThreadNum = Integer.valueOf(ConfigReader_PROP.findProperty( CFName, "maxThreadNum")).intValue();
-//	public final static int maxThreasingleJobMaxThreadNumdNum = Integer.valueOf(ConfigReader_PROP.findProperty( CFName, "singleJobMaxThreadNum")).intValue();
+//	public final static int singleJobMaxThreadNum = Integer.valueOf(ConfigReader_PROP.findProperty( CFName, "singleJobMaxThreadNum")).intValue();
 	
 	/** below field can't be customized, relative to xls  */
 	public final static int IETxtMultiple = Integer.valueOf(ConfigReader_PROP.findProperty( CFName, "IE.txtMultiple")).intValue();
