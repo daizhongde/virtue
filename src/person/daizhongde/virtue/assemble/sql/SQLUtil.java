@@ -540,12 +540,12 @@ public class SQLUtil {
 			   from t_pub_dictionary 
 			  where type='audit_type' 
 			    and code=t1.faudit_type ) "faudit_type"
-		from tool.Mig_Auditf_Main t1
+		from tool.mig_auditf_main t1
 		
 		-->formatSQL: 
 		select t1.FAUDIT_ID "faudit_id",
 			(#nestSQL) "faudit_type"
-		from tool.Mig_Auditf_Main t1
+		from tool.mig_auditf_main t1
 	 * @param selectSQL
 	 * @return
 	 */

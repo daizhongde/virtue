@@ -678,7 +678,6 @@
 //	 */
 //	public List sqlQuerylistAllByMap( final String sql,final Map condition )
 //	{
-//		System.out.println("sql:"+sql);
 //		if(condition == null){
 //			return sqlQuerylistAll(sql);
 //		}

@@ -77,7 +77,7 @@ public class TAuthorityModuleSpringDAO extends HibernateDaoSupport {
 		{
 			//my id is other's parent, search downward
 			queryString = "select * " +
-						    "from T_Authority_Module " +
+						    "from t_authority_module " +
 						   "start with N_Mid= :parentId connect by prior N_Mid=N_Mparent " +
 						   "order by N_Mlevel,N_Morder";
 			Map map = new HashMap();

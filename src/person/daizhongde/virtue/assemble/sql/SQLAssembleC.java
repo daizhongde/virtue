@@ -136,7 +136,7 @@ public class SQLAssembleC {
 			
 			log.debug("front:"+front+",alias:"+alias+",frontNoAlias:"+frontNoAlias);
 			
-			column = null == front2col ? frontNoAlias : front2col.get( frontNoAlias ).toString();
+			column = (null == front2col) ? frontNoAlias : front2col.get( frontNoAlias ).toString();
 			columnWithAlias = alias + "." +column;
 			
 			parameter = " :"+front+" ";
