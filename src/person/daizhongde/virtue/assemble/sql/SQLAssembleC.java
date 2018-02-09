@@ -125,7 +125,7 @@ public class SQLAssembleC {
 		while(it.hasNext()){
 			column = it.next().toString();
 //			o = this.map.get(column);
-			this.columnNames += column + ",";
+			this.columnNames += "`"+column + "`,";
 			this.columnValues += this.mapForSQLJoin.get(column) + ",";
 		}
 		
@@ -144,10 +144,10 @@ public class SQLAssembleC {
 			this.map.put( front, this.data.get(front) );
 			
 			if(i == j-1){
-				this.columnNames += column;
+				this.columnNames += "`"+column + "`";
 				this.columnValues += parameter;
 			}else{
-				this.columnNames += column + ",";
+				this.columnNames += "`"+column + "`,";
 				this.columnValues += parameter + ",";
 			}
 			
@@ -160,12 +160,12 @@ public class SQLAssembleC {
 		
 		if( this.schema == null )
 		{
-			this.SQL = "insert into " + tableName + " (" + this.columnNames + ") " +
+			this.SQL = "insert into `" + tableName + "` (" + this.columnNames + ") " +
 					"values (" + this.columnValues + ")";
 		}
 		else
 		{
-			this.SQL = "insert into " + this.schema + "." + tableName + " (" + this.columnNames + ") " +
+			this.SQL = "insert into `" + this.schema + "`.`" + tableName + "` (" + this.columnNames + ") " +
 					"values (" + this.columnValues + ")";
 		}
 		

@@ -149,17 +149,17 @@ public class SQLAssembleU {
 				}
 				
 				if(i == j-1){
-					this.sqlSet += column + "=" + parameter;
+					this.sqlSet += "`"+column + "`=" + parameter;
 				}else{
-					this.sqlSet += column + "=" + parameter + ",";
+					this.sqlSet += "`"+column + "`=" + parameter + ",";
 				}
 			}else{
 				parameter = " null ";//
 								
 				if(i == j-1){
-					this.sqlSet += column + "=" + parameter;
+					this.sqlSet += "`"+column + "`=" + parameter;
 				}else{
-					this.sqlSet += column + "=" + parameter + ",";
+					this.sqlSet += "`"+column + "`=" + parameter + ",";
 				}
 			}
 			
@@ -188,12 +188,12 @@ public class SQLAssembleU {
 		
 		if( this.schema == null )
 		{
-			this.SQL = "update " + tableName + " set " + this.sqlSet + " " +
+			this.SQL = "update `" + tableName + "` set " + this.sqlSet + " " +
 					"where " + this.whereBackSQL;
 		}
 		else
 		{
-			this.SQL = "update " + this.schema + "." + tableName + " set " + this.sqlSet + " " +
+			this.SQL = "update `" + this.schema + "`.`" + tableName + "` set " + this.sqlSet + " " +
 					"where " + this.whereBackSQL;
 		}
 		log.debug( this.SQL );

@@ -137,7 +137,7 @@ public class SQLUtil {
 				column = frontNoAlias;
 			}
 			
-			columnWithAlias = alias + "." +column;
+			columnWithAlias = alias + ".`" +column+"`";
 			
 			//Operator.EQUAL;//defalut: equal     //ConfigConstants.defaultOperatorIndex;
 			operatorIndex = ( operator != null && operator.get(front) != null ) ? 
@@ -601,6 +601,8 @@ public class SQLUtil {
 		 * @param columnTypes eg:{C_MNAME: 12}
 		 * @param map Target SQL parameters map
 		 * @param withAlias Wethether table name with alias
+		 * @param SQLDOC
+		 * @param onlyParams exceptColumns only as parameter, don't need assemble where conditon
 		 * @return
 		 */
 		public static String getWhereBackSQL2( Map condition, Map operator, 
@@ -648,7 +650,7 @@ public class SQLUtil {
 					column = frontNoAlias;
 				}
 				
-				columnWithAlias = alias + "." +column;
+				columnWithAlias = alias + ".`" +column+"`";
 				
 				//Operator.EQUAL;//defalut: equal     //ConfigConstants.defaultOperatorIndex;
 				operatorIndex = ( operator != null && operator.get(front) != null ) ? 

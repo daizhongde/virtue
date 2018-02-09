@@ -100,24 +100,24 @@ public class SQLAssembleD {
 //			delete from t_authority_module where n_mid=100 and c_mname=''
 			if( this.condition == null || this.condition.size() == 0 )
 			{
-				this.SQL = "delete from " + tableName;
+				this.SQL = "delete from `" + tableName+ "`";
 //				this.SQL = "truncate table " + tableName;
 			}
 			else
 			{
 //				this.NativeSQL = "delete from " + this.absc.getTableName() + " t1 where " + this.whereBackSQL;
-				this.SQL = "delete from " + tableName + " where " + this.whereBackSQL;
+				this.SQL = "delete from `" + tableName + "` where " + this.whereBackSQL;
 			}
 		}
 		else
 		{
 			if( this.condition == null || this.condition.size() == 0 )
 			{
-				this.SQL = "delete from " + this.schema + "." + tableName;
+				this.SQL = "delete from `" + this.schema + "`.`" + tableName + "`";
 			}
 			else
 			{
-				this.SQL = "delete from " + this.schema + "." + tableName + " where " + this.whereBackSQL;
+				this.SQL = "delete from `" + this.schema + "`.`" + tableName + "` where " + this.whereBackSQL;
 			}
 		}
 	}
