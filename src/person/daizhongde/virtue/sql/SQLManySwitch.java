@@ -54,7 +54,7 @@ import person.daizhongde.virtue.util.date.DateUtils;
  * MySQL 5.1
  * 1  char
  * 12 varchar
- * -1 varchar
+ * -1 text
  * 
  * 4  int unsigned,mediumint,int
  * 7  float,float undigned
