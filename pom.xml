@@ -18,7 +18,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>	
 		
         <json-lib.version>2.4</json-lib.version>
-        	
+        <fastjson.version>1.2.47</fastjson.version>
+        
 		<!-- ssh  2.5.10.1   2.5.12 -->
 		<struts2.version>2.5.12</struts2.version>
 		<!-- 3.2.18.RELEASE  4.2.9.RELEASE    4.3.10.RELEASE -->
@@ -49,6 +50,13 @@
 		    <classifier>jdk15</classifier>    
 		</dependency> 
 	
+		
+	<dependency>
+	    <groupId>com.alibaba</groupId>
+	    <artifactId>fastjson</artifactId>
+	    <version>${fastjson.version}</version>
+	</dependency>
+	
    		<!-- ssh -->
 		<dependency>
 		    <groupId>org.apache.struts</groupId>
@@ -71,7 +79,6 @@
 			<version>${spring.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		
 <!-- poi -->
 		<dependency>
 		    <groupId>org.apache.poi</groupId>
@@ -132,7 +139,7 @@
 		    <artifactId>slf4j-api</artifactId>
 		    <version>${slf4j.version}</version>
 		</dependency>
-
+		
    </dependencies>
    
   <build>
