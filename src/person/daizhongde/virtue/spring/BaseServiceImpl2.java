@@ -381,12 +381,12 @@ public class BaseServiceImpl2<E extends Serializable, ID extends Serializable> i
 //	public E browsePOJOById(String id) {
 //		return baseDao.findById(E, new Integer(id) );
 //	}
-	public E browsePOJOById(final Class clazz,final Serializable id ) {
-		return (E)baseDao.findById(clazz, id );
-	}
-	public E browsePOJOById(final String entityName,final Serializable id ) {
-		return (E)baseDao.findById(entityName, id );
-	}
+//	public E browsePOJOById(final Class clazz,final Serializable id ) {
+//		return (E)baseDao.findById(clazz, id );
+//	}
+//	public E browsePOJOById(final String entityName,final Serializable id ) {
+//		return (E)baseDao.findById(entityName, id );
+//	}
 	public int delete( String jdata ){
 		JSONObject jsonObject = JSONObject.fromObject(jdata);
 		AbstractConstant absConstant=null;

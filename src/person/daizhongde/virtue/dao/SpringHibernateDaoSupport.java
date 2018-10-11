@@ -58,17 +58,17 @@ import java.util.Map;
 public class SpringHibernateDaoSupport extends HibernateDaoSupport implements SpringHibernateDao
 {
 	private static Logger log = LoggerFactory.getLogger(SpringHibernateDaoSupport.class);
-	@SuppressWarnings("unchecked")
-	public Object findById(final Class clazz,final Serializable id)
-	{
-		return getHibernateTemplate().get(clazz,id);
-//		org.hibernate.Session session = null;
-//		return getHibernateTemplate().load(clazz,id);
-	}
-	public Object findById(final String entityName,final Serializable id)
-	{
-		return getHibernateTemplate().get(entityName,id);
-	}
+//	@SuppressWarnings("unchecked")
+//	public Object findById(final Class clazz,final Serializable id)
+//	{
+//		return getHibernateTemplate().get(clazz,id);
+////		org.hibernate.Session session = null;
+////		return getHibernateTemplate().load(clazz,id);
+//	}
+//	public Object findById(final String entityName,final Serializable id)
+//	{
+//		return getHibernateTemplate().get(entityName,id);
+//	}
 	
 	/**
 	 * 使用HQL 语句进行分页查询操作
