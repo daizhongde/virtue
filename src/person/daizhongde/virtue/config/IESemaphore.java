@@ -1,8 +1,9 @@
-package person.daizhongde.virtue.util.ie;
+package person.daizhongde.virtue.config;
 
 import java.util.concurrent.Semaphore;
 
 import person.daizhongde.virtue.constant.INIT;
+
 /**
  * 导入导出用信号量
  * <p>
