@@ -25,7 +25,7 @@ public class ConfigReader_PROP {
 		Properties prop = new Properties();
 		InputStream is = null;
 		try {
-			if( fname.startsWith("com/") )
+			if( fname.startsWith("com/")||fname.startsWith("person/") )
 			{
 //				System.out.println("1 starts with com/");
 //				is = ConfigReader_PROP.class.getResourceAsStream( fname );

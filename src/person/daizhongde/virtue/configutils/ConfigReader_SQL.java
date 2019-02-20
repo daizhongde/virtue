@@ -35,7 +35,7 @@ public class ConfigReader_SQL {
 		String myreadline=""; // 定义一个String类型的变量,用来每次读取一行
 		
 		try {
-			if( fname.startsWith("com/") )
+			if( fname.startsWith("com/")||fname.startsWith("person/") )
 			{
 				String path =ConfigReader_SQL.class.getResource("/").getPath();//得到工程名WEB-INF/classes/路径
 				

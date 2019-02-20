@@ -207,7 +207,7 @@ public class EA_MD5Impl implements EncryptionAlgorithm{
 //			System.out.println(sa[i]+":"+MD5.getMD5ofStr(sa[i]).toUpperCase());
 //		}
 		
-		String plaintext="", ciphertext="698D51A19D8A121CE581499D7B701668";
+		String plaintext="", ciphertext="7abcd6393f501860d571af6095bafeae";
 		EA_MD5Impl d = new EA_MD5Impl();
 		plaintext = d.decode(ciphertext);
 	    

@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>person.daizhongde.virtue</groupId>
-  <artifactId>virtue-jdk17</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>virtue-jdk17</name>
-  <description>virtue-jdk17 support jdk1.7+</description>
+  <groupId>person.daizhongde</groupId>
+  <artifactId>virtue-common</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>virtue_common</name>
+  <description>virtue_common support jdk1.7+</description>
   <url>http://maven.apache.org</url>
   
   <!-- 
@@ -37,9 +37,9 @@
    <dependencies>
    <!-- userdefine project -->
 		<dependency>
-			<groupId>person.daizhongde.virtue.util</groupId>
+			<groupId>person.daizhongde</groupId>
   			<artifactId>virtue-util</artifactId>
-  			<version>0.0.1-SNAPSHOT</version>
+  			<version>1.0.0-SNAPSHOT</version>
 		</dependency> 
 		
    		<!-- json lib  -->
