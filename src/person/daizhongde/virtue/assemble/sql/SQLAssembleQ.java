@@ -1,5 +1,7 @@
 package person.daizhongde.virtue.assemble.sql;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,7 +9,10 @@ import java.util.Map;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import person.daizhongde.virtue.codec.SHA1_Encoding;
 import person.daizhongde.virtue.configutils.ConfigDocument_SQL;
+import person.daizhongde.virtue.constant.Lic;
+import person.daizhongde.virtue.sigar.ComputerIdentifier;
 
 /**
  * 查询
@@ -33,6 +38,29 @@ import person.daizhongde.virtue.configutils.ConfigDocument_SQL;
  *
  */
 public class SQLAssembleQ {
+	
+	private static String lic = "";
+	static {
+		String identifier="";
+		try {
+			identifier = ComputerIdentifier.generateLicenseKey();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		lic = SHA1_Encoding.toSHA1(identifier+"82019102");
+	}
+	public static void check(String locallic){
+//		if(!locallic.equalsIgnoreCase(lic)){
+//			throw new RuntimeException("请购买正版license!QQ:413881461;公众号：德软集团");
+//		}
+		if(lic.equalsIgnoreCase("0")){
+			throw new RuntimeException("请购买正版license!QQ:413881461;公众号：德软集团");
+		}else if(Integer.valueOf(locallic+"1028")
+				<Integer.valueOf((new SimpleDateFormat("yyyyMMdd")).format(new Date())) ){
+			throw new RuntimeException("license已过期!购买 QQ:413881461;公众号：德软集团");
+		}
+	}
 	
 	private static Logger log = LogManager.getLogger(SQLAssembleQ.class.getName() );
 	
@@ -157,6 +185,7 @@ public class SQLAssembleQ {
 
 	}
 	public void queryInitialize(){
+		SQLAssembleQ.check(String.valueOf( Lic.getYear()));
 //		System.out.println("####################################################");
 //		System.out.println("##whereBackSQL:"+whereBackSQL);
 //		System.out.println("##countSQL:"+countSQL);

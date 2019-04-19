@@ -133,6 +133,12 @@
 		    <version>${slf4j.version}</version>
 		</dependency>
 		
+		<dependency>
+		    <groupId>com.github.dblock</groupId>
+		    <artifactId>oshi-core</artifactId>
+		    <version>LATEST</version>
+		</dependency>
+		
    </dependencies>
    
   <build>
