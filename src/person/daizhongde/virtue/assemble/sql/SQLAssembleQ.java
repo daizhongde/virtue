@@ -54,10 +54,12 @@ public class SQLAssembleQ {
 //		if(!locallic.equalsIgnoreCase(lic)){
 //			throw new RuntimeException("请购买正版license!QQ:413881461;公众号：德软集团");
 //		}
+//		System.out.println("过期时间："+ locallic+"1028" );
 		if(lic.equalsIgnoreCase("0")){
 			throw new RuntimeException("请购买正版license!QQ:413881461;公众号：德软集团");
 		}else if(Integer.valueOf(locallic+"1028")
 				<Integer.valueOf((new SimpleDateFormat("yyyyMMdd")).format(new Date())) ){
+//			System.out.println(Integer.valueOf(locallic+"1028")+"<"+  Integer.valueOf((new SimpleDateFormat("yyyyMMdd")).format(new Date())) );
 			throw new RuntimeException("license已过期!购买 QQ:413881461;公众号：德软集团");
 		}
 	}
@@ -111,7 +113,7 @@ public class SQLAssembleQ {
 	private Map map = new HashMap();
 	/** Object[] parameter invoke in dao can use, also reservered for extra use  **/
 	private Object[] values = new Object[0];
-	
+	/** exclude params pass from front in condition   **/
 	private String onlyParams;
 	
 	public SQLAssembleQ(){
@@ -155,6 +157,31 @@ public class SQLAssembleQ {
 		this.columnTypes = columnTypes;
 		this.front2col = front2col;
 		this.sort = sort;
+		
+		queryInitialize();
+	}
+	/**
+	 * with pagegation 
+	 * <p>
+	 * with front name to database table column name's convert
+	 * @param selectSQL
+	 * @param condition
+	 * @param operator
+	 * @param columnTypes
+	 * @param front2col
+	 * @param sort
+	 * @param map set params in sql, but don't assemble sql
+	 */
+	public SQLAssembleQ(ConfigDocument_SQL  sqlDoc, String selectSQL, Map condition, Map operator, 
+			Map columnTypes,  Map front2col, List sort, Map map){
+		this.sqlDoc = sqlDoc;
+		this.selectSQL = selectSQL;
+		this.condition = condition;
+		this.operator = operator;
+		this.columnTypes = columnTypes;
+		this.front2col = front2col;
+		this.sort = sort;
+		this.map = map;
 		
 		queryInitialize();
 	}

@@ -38,7 +38,10 @@ public class ComputerIdentifier {
 		System.out.println("processorIdentifier:"+processorIdentifier);
 		System.out.println("delimiter:"+delimiter);
 		System.out.println("processors:"+processors);
-		return vendor + delimiter + processorSerialNumber + delimiter + processorIdentifier + delimiter + processors;
+
+		String code = vendor + delimiter + processorSerialNumber + delimiter + processorIdentifier + delimiter + processors;
+		System.out.println("Local Machine code:<"+code+">");
+		return code;
 	}
 
 	public static void printJvm() {
@@ -74,7 +77,8 @@ public class ComputerIdentifier {
 
 	public static void main(String[] arguments) throws Exception
     {
-        String identifier = generateLicenseKey();
+//        String identifier = generateLicenseKey();
+		String identifier = "GNU/Linux#unknown#Intel64 Family 6 Model 79 Stepping 1#2";
         System.out.println();
         System.out.println(identifier);
 

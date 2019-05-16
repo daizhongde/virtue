@@ -64,9 +64,12 @@ public class JDBCBatchInsert {
 		Statement stmt = null;
 		try{
 			stmt = conn.createStatement();
+//			conn.setClientInfo("charset", "utf-8");
+//			conn.setClientInfo(properties);
 			conn.setAutoCommit(false);
 			for(int i = 0, j = sqllist.size(); i<j; i++) {
 				String tempSQL = sqllist.get(i);
+//				System.out.println("tempSQL："+tempSQL);
 			    stmt.addBatch(tempSQL);
 			    
 			    if (i % 100 == 0) {
