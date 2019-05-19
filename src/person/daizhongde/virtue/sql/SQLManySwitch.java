@@ -236,7 +236,7 @@ public class SQLManySwitch {
 					case 3: 
 					case 4: 
 					case 5: 
-					case 6: return new Integer(o.toString());
+					case 6: return new Long(o.toString());
 					case 7: 
 					case 8: return o.toString()+"%";
 					case 9: 

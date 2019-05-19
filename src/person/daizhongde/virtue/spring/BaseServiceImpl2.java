@@ -375,7 +375,7 @@ public class BaseServiceImpl2<E extends Serializable, ID extends Serializable> i
 		
 		return (E)baseDao.listAllByMap( "from TAuthorityButton t1 where "+hqlA.getWhereBackHQL(), hqlA.getMap() ).get(0);
 	}
-//	public E browsePOJOById(int id) {
+//	public E browsePOJOById(long id) {
 //		return baseDao.findById(E, new Integer(id)  );
 //	}
 //	public E browsePOJOById(String id) {

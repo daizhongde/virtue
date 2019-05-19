@@ -268,7 +268,7 @@ public class BaseServiceImpl implements BaseService{
 //		return baseDao.listAllByMap( "from TAuthorityButton t1 where "+hqlA.getWhereBackHQL(), hqlA.getMap() ).get(0);
 		return null;
 	}
-	public Object browsePOJOById(int id) {
+	public Object browsePOJOById(long id) {
 //		return baseDao.findById( new Integer(id)  );
 		return null;
 	}

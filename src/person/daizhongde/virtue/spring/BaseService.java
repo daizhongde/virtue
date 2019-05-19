@@ -104,7 +104,8 @@ public interface BaseService {
 	public abstract Object[] browseArray( String jdata );
 	
 	public abstract Object browsePOJO( String jdata );
-	public abstract Object browsePOJOById( int id );
+//	public abstract Object browsePOJOById( int id );
+	public abstract Object browsePOJOById( long id );
 	/**
 	 * 
 	 * @param id 实例id
