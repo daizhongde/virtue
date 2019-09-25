@@ -678,7 +678,7 @@ public class SpringHibernateDaoSupport extends HibernateDaoSupport implements Sp
 	 */
 	public List sqlQuerylistAllByMap( final String sql,final Map condition )
 	{
-		if(condition == null){
+		if(condition == null|| condition.size()==0){
 			return sqlQuerylistAll(sql);
 		}
 		

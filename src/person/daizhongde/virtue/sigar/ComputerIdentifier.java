@@ -78,7 +78,11 @@ public class ComputerIdentifier {
 	public static void main(String[] arguments) throws Exception
     {
 //        String identifier = generateLicenseKey();
-		String identifier = "GNU/Linux#unknown#Intel64 Family 6 Model 79 Stepping 1#2";
+		String identifier = "Microsoft#CNG124SL23      #Intel64 Family 6 Model 44 Stepping 2#24";
+		// appl-stamp-22 "GNU/Linux#06CWV70#Intel64 Family 6 Model 44 Stepping 2#8";
+		// aliyun www 45: "GNU/Linux#unknown#Intel64 Family 6 Model 79 Stepping 1#2" 
+		// v3 10.4.229.186  :  GNU/Linux#unknown#Intel64 Family 6 Model 79 Stepping 1#4
+//		 200.200.200.55 : Microsoft#CNG124SL23      #Intel64 Family 6 Model 44 Stepping 2#24
         System.out.println();
         System.out.println(identifier);
 
