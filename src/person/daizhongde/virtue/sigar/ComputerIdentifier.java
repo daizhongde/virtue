@@ -78,16 +78,23 @@ public class ComputerIdentifier {
 	public static void main(String[] arguments) throws Exception
     {
 //        String identifier = generateLicenseKey();
-		String identifier = "Microsoft#CNG124SL23      #Intel64 Family 6 Model 44 Stepping 2#24";
+//		String identifier = "GNU/Linux#6b139ad3-c61c-4e46-b82e-0286ce4b93e5#Intel64 Family 6 Model 85 Stepping 7#1";
+		String identifier = "GNU/Linux#6b139ad3-c61c-4e46-b82e-0286ce4b93e5#Intel64 Family 6 Model 85 Stepping 4#1";
 		// appl-stamp-22 "GNU/Linux#06CWV70#Intel64 Family 6 Model 44 Stepping 2#8";
 		// aliyun www 45: "GNU/Linux#unknown#Intel64 Family 6 Model 79 Stepping 1#2" 
 		// v3 10.4.229.186  :  GNU/Linux#unknown#Intel64 Family 6 Model 79 Stepping 1#4
 //		 200.200.200.55 : Microsoft#CNG124SL23      #Intel64 Family 6 Model 44 Stepping 2#24
+		// 192.168.2.100  GNU/Linux#unknown#Intel64 Family 6 Model 158 Stepping 9#4
+		// mycomputer： Microsoft#PF0YXYP0#Intel64 Family 6 Model 142 Stepping 9#4
+		/* 47.107.250.74   
+		 * Local Machine code:<GNU/Linux#6b139ad3-c61c-4e46-b82e-0286ce4b93e5#Intel64 Family 6 Model 85 Stepping 7#1>    
+		 * 
+		 * */
         System.out.println();
         System.out.println(identifier);
 
 
-        String sha1= SHA1_Encoding.toSHA1(identifier+"82019102");
+        String sha1= SHA1_Encoding.toSHA1(identifier+"82012202");
         System.out.println("sha1:"+sha1);//lic
         
         String y1 = (new SimpleDateFormat("yyyy")).format(new Date());
