@@ -21,7 +21,7 @@
         <fastjson.version>1.2.47</fastjson.version>
         
 		<!-- ssh  2.5.10.1   2.5.12 -->
-		<struts2.version>2.5.12</struts2.version>
+		<struts2.version>2.5.30</struts2.version>
 		<!-- 3.2.18.RELEASE  4.2.9.RELEASE    4.3.10.RELEASE -->
 		<spring.version>4.3.17.RELEASE</spring.version>
 		<!-- 4.2.21.Final    4.3.11.Final(1.7.0_51 )   
