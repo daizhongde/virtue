@@ -62,7 +62,7 @@ public class ConfigReader_PROP {
 			    path=path.substring(0, path.indexOf("/WEB-INF/"));//从路径字符串中取出工程路径
 				is = new FileInputStream( java.net.URLDecoder.decode( path + fname,"UTF-8") );
 			}
-			else if( fname.indexOf("/")==-1 )
+			else if( fname.indexOf("/")==-1  && fname.indexOf("\\")==-1)
 			{
 //				System.out.println("3...");
 				is = ConfigReader_PROP.class.getResourceAsStream( "/"+fname );

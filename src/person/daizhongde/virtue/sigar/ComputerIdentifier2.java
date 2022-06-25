@@ -1,10 +1,5 @@
 package person.daizhongde.virtue.sigar;
 
-import oshi.SystemInfo;
-import oshi.hardware.CentralProcessor;
-import oshi.hardware.ComputerSystem;
-import oshi.hardware.HardwareAbstractionLayer;
-import oshi.software.os.OperatingSystem;
 import person.daizhongde.virtue.util.codec.AES;
 import person.daizhongde.virtue.util.codec.SHA1_Encoding;
 import person.daizhongde.virtue.util.string.StringUtils2;
@@ -15,13 +10,14 @@ import java.lang.management.MemoryType;
 import java.lang.management.MemoryUsage;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Properties;
 
 /**
  * <br>类描述：
- *  
- *  第二代机器码，license 能到天，但慢了一点
- *  
- *  原来的第一代机器码代码已删除，license不能到天
+ *   第三代机器码  生成快、无依赖
  *
  * @author dzd daizhongde@copote.com	2021/4/18 21:21
  * @ClassName ComputerIdentifier
@@ -29,37 +25,47 @@ import java.util.Date;
  * @since {修改人、修改时间、修改事由}
  */
 
-public class ComputerIdentifier {
+public class ComputerIdentifier2 {
+	
+	private static Map<String, String> map = System.getenv();
+
+    private static Properties prop = System.getProperties();
+	
 	/**
 	 * 获取本机机器码（明文）
 	 * 
 	 */
 	public static String generateLicenseKey() throws Exception {
-		SystemInfo systemInfo = new SystemInfo();
-		OperatingSystem operatingSystem = systemInfo.getOperatingSystem();
-		HardwareAbstractionLayer hardwareAbstractionLayer = systemInfo.getHardware();
-		CentralProcessor centralProcessor = hardwareAbstractionLayer.getProcessor();
-
-		ComputerSystem computerSystem = hardwareAbstractionLayer.getComputerSystem();
 		
-		String vendor = operatingSystem.getManufacturer();
-//		String processorSerialNumber = centralProcessor.getSystemSerialNumber();
-		String processorSerialNumber = computerSystem.getSerialNumber();
+		String USERNAME = map.get("USERNAME");// 获取用户名;
+		String COMPUTERNAME =  map.get("COMPUTERNAME");// 获取计算机名
+		String USERDOMAIN = map.get("USERDOMAIN");// 获取计算机域名
 		
-		String processorIdentifier = centralProcessor.getIdentifier();
-		int processors = centralProcessor.getLogicalProcessorCount();
+		String PROCESSOR_ARCHITECTURE = map.get("PROCESSOR_ARCHITECTURE");
+		String PROCESSOR_IDENTIFIER = map.get("PROCESSOR_IDENTIFIER");
+		String PROCESSOR_LEVEL = map.get("PROCESSOR_LEVEL");
+		String PROCESSOR_REVISION = map.get("PROCESSOR_REVISION");
 
 		String delimiter = "#";
 
-		System.out.println("vendor:"+vendor);
-		System.out.println("processorSerialNumber:"+processorSerialNumber);
-		System.out.println("delimiter:"+delimiter);
-		System.out.println("processorIdentifier:"+processorIdentifier);
-		System.out.println("delimiter:"+delimiter);
-		System.out.println("processors:"+processors);
+		System.out.println("USERNAME:"+USERNAME);
+		System.out.println("COMPUTERNAME:"+COMPUTERNAME);
+		System.out.println("USERDOMAIN:"+USERDOMAIN);
+		System.out.println("PROCESSOR_ARCHITECTURE:"+PROCESSOR_ARCHITECTURE);
+		System.out.println("PROCESSOR_IDENTIFIER:"+PROCESSOR_IDENTIFIER);
+		System.out.println("PROCESSOR_LEVEL:"+PROCESSOR_LEVEL);
+		System.out.println("PROCESSOR_REVISION:"+PROCESSOR_REVISION);
 
-		String code = vendor + delimiter + processorSerialNumber + delimiter + processorIdentifier + delimiter + processors;
+		String code = USERNAME + 
+				delimiter + COMPUTERNAME +
+				delimiter + USERDOMAIN + 
+				delimiter + PROCESSOR_ARCHITECTURE + 
+				delimiter + PROCESSOR_IDENTIFIER + 
+				delimiter + PROCESSOR_LEVEL + 
+				delimiter + PROCESSOR_REVISION;
+		
 		System.out.println("Local Machine code:<"+code+">");
+		System.out.println("Local Machine code.length:<"+code.length()+">");
 		return code;
 	}
 
@@ -110,7 +116,44 @@ public class ComputerIdentifier {
                     + ".max is " + usage.getMax());
         }
     }
+    
+    public void printEnv(){
+        System.out.println("###############################  1  ####################");
+        Iterator it =  map.keySet().iterator();
+        while( it.hasNext() ){
+        	String key = it.next().toString();
+        	System.out.println(key + ":" + map.get(key));
+        }
+        
+    }
 
+    /**
+     * 
+     * @Description:仅用于测试
+     * @param:       
+     * @return: void      
+     * @throws
+     */
+    public void printProp(){
+
+        System.out.println("###############################  3  #################### ");
+        Enumeration enum2 =  prop.propertyNames();
+        while( enum2.hasMoreElements()  ){
+        	String key = enum2.nextElement().toString();
+        	System.out.println(key + ":" + prop.getProperty(key));
+        }
+
+        System.out.println("###############################  4  ####################   ");
+        
+    }
+
+    /**
+     * 
+     * @Description:仅用于测试
+     * @param:       
+     * @return: void      
+     * @throws
+     */
     public static void main(String[] arguments) throws Exception
     {
         // 20210418 生成License的identifier 改用license文件名加 原机器码identifier
@@ -148,10 +191,10 @@ public class ComputerIdentifier {
         System.out.println("###############################  MachineCodeMiWen:"+MachineCodeMiWen);
         String machineCode = aes.decrypt( MachineCodeMiWen,"          zddaic","           98974");
         System.out.println("###############################  machineCode:"+machineCode);
-        
-        
-        
-        
+
+ 
         
     }
+    
+    
 }
